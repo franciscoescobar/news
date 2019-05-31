@@ -1,5 +1,5 @@
 import React from "react";
-
-const Home = () => <h1>Estoy en el Home</h1>;
+import Title from "../../components/Title";
+const Home = () => <Title title="Hoy" />;
 
 export default Home;

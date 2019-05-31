@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import "./index.css";
 
-const New = () => (
+const GridCard = () => (
   <Card className="card">
     <CardActionArea>
       <CardMedia
@@ -33,4 +33,4 @@ const New = () => (
   </Card>
 );
 
-export default New;
+export default GridCard;
