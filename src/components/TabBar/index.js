@@ -2,12 +2,13 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-
-const TabBar = () => {
+import { withRouter } from "react-router-dom";
+const TabBar = ({ history }) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    history.push(`/${newValue > 0 ? `category/${newValue}` : ""}`);
   };
 
   return (
@@ -30,4 +31,4 @@ const TabBar = () => {
   );
 };
 
-export default TabBar;
+export default withRouter(TabBar);

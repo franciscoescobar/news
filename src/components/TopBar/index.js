@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 
+import { withRouter } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -62,8 +63,12 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-const TopBar = () => {
+const TopBar = ({ history }) => {
   const classes = useStyles();
+
+  const handleOnChange = event => {
+    history.push(`/search/${event.target.value}`);
+  };
   return (
     <div>
       <AppBar position="static">
@@ -89,6 +94,7 @@ const TopBar = () => {
                 root: classes.inputRoot,
                 input: classes.inputInput
               }}
+              onChange={handleOnChange}
             />
           </div>
         </Toolbar>
@@ -97,4 +103,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default withRouter(TopBar);
