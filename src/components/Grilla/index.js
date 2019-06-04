@@ -8,7 +8,7 @@ const Grilla = props => {
   return (
     <div>
       <Grid container className="root" spacing={2}>
-        <Grid container justify="center" alignItems="center" spacing={1}>
+        <Grid container justify="center" alignItems="center" spacing={3}>
           {props.noticias !== null
             ? props.noticias.map(noticia => {
                 return (
