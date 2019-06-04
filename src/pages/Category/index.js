@@ -25,7 +25,7 @@ const Category = ({ match }) => {
         const lastNews = json.slice(0, 21);
         setNews(lastNews);
       } catch (error) {
-        console.log(error);
+        setError(error);
       } finally {
         setLoading(false);
       }

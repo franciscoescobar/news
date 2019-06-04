@@ -1,42 +1,34 @@
-import React, { Component } from 'react'
-import "./index.css"
+import React from "react";
+import "./index.css";
 
-import Grid from '@material-ui/core/Grid'
-import GridCard from "../../components/GridCard"
+import Grid from "@material-ui/core/Grid";
+import GridCard from "../../components/GridCard";
 
-class Grilla extends Component {
-    constructor(props) {  
-        super(props)
-    }
+const Grilla = props => {
+  return (
+    <div>
+      <Grid container className="root" spacing={2}>
+        <Grid container justify="center" alignItems="center" spacing={1}>
+          {props.noticias !== null
+            ? props.noticias.map(noticia => {
+                return (
+                  <Grid item key={noticia.news_id}>
+                    <GridCard
+                      title={noticia.title}
+                      img_url={noticia.img_url}
+                      name={noticia.name}
+                      source_name={noticia.source_name}
+                      news_id={noticia.news_id}
+                      url={noticia.url}
+                    />
+                  </Grid>
+                );
+              })
+            : ""}
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
-    render() {
-        return (
-            <div >
-         
-                <Grid container className="root" spacing={2}>
-                    <Grid container  justify="center"  alignItems="center" spacing={1}>
-                        
-                        {
-                            (this.props.noticias !== null)
-                            ? this.props.noticias.map( (a) => {
-                                return (
-                                    <Grid item key={a.news_id}>
-                                        <GridCard   title={a.title} 
-                                                    img_url={a.img_url} 
-                                                    name={a.name} 
-                                                    source_name={a.source_name} 
-                                                    news_id={a.news_id}
-                                                    url = {a.url}  />
-                                    </Grid>
-                                    )
-                            } )
-                            : ''
-                        }
-                    </Grid>
-                </Grid>
-            </div>
-        )
-    }
-}
-
-export default Grilla
+export default Grilla;
