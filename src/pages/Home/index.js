@@ -17,7 +17,7 @@ class Home extends Component {
         let data = await fetch(`https://api.canillitapp.com/latest/${date}`)
         data = await data.json()
         this.setState( {
-            noticias: data.slice(0,30)
+            noticias: data.slice(0,27)
         } )
       }
 

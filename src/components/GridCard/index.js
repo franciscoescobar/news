@@ -10,10 +10,14 @@ class GridCard extends Component {
       super(props)
   }
 
+  goTo = (url) => {
+    window.open(url)
+}
+
   render() {
       return (
         <div>
-          <Card className="card">
+          <Card className="card"  onClick={ () => this.goTo(this.props.url)}>
             <CardActionArea>
               <CardMedia
                 className="img"

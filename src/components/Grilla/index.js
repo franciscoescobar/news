@@ -13,7 +13,7 @@ class Grilla extends Component {
         return (
             <div >
          
-                <Grid container className="root" spacing={2} >
+                <Grid container className="root" spacing={2}>
                     <Grid container  justify="center"  alignItems="center" spacing={1}>
                         
                         {
@@ -25,7 +25,8 @@ class Grilla extends Component {
                                                     img_url={a.img_url} 
                                                     name={a.name} 
                                                     source_name={a.source_name} 
-                                                    news_id={a.news_id}  />
+                                                    news_id={a.news_id}
+                                                    url = {a.url}  />
                                     </Grid>
                                     )
                             } )

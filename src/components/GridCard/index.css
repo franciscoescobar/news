@@ -14,8 +14,10 @@
     margin: 10px;
 }
 
-.source{
-    font-size: 0.8rem
+.info .source{
+    position: absolute;
+    font-size: 0.8rem;
+    bottom: 1px;
 }
 
 .img {
