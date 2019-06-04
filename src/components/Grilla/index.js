@@ -14,7 +14,7 @@ class Grilla extends Component {
             <div >
          
                 <Grid container className="root" spacing={2}>
-                    <Grid container  justify="center"  alignItems="center" spacing={1}>
+                    <Grid container  justify="center"  alignItems="center" spacing={3}>
                         
                         {
                             (this.props.noticias !== null)
