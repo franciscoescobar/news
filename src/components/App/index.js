@@ -13,6 +13,7 @@ function App() {
       <TabBar />
       <Route path="/" exact component={Home} />
       <Route path="/category/:categoryId" component={Category} />
+      <Route exact path="/search" component={Search} />
       <Route path="/search/:query" component={Search} />
     </Router>
   );

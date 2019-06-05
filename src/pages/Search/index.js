@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import List from "../../components/List";
 import Title from "../../components/Title";
 import LoadingLine from "../../components/LoadingLine";
+import { useDebounce } from "use-debounce";
 const Search = ({ match }) => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const query = match.params.query;
+  const [value] = useDebounce(query, 800);
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://api.canillitapp.com/search/${query}`
+          `https://api.canillitapp.com/search/${value}`
         );
         const json = await response.json();
         const lastNews = json.slice(0, 21);
@@ -22,13 +24,19 @@ const Search = ({ match }) => {
       } finally {
         setLoading(false);
       }
+      return () => {};
     };
     fetchData();
-  }, [query]);
+  }, [value]);
   return (
     <>
       {loading ? <LoadingLine /> : null}
-      <Title title={`Resultados de: ${query}`} />
+
+      {query ? (
+        <Title title={`Resultados de: ${query}`} />
+      ) : (
+        <Title title={`No hay resultados de: ""`} />
+      )}
       {error ? <h1>{error}</h1> : <List noticias={news} />}
     </>
   );
