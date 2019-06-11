@@ -25,8 +25,9 @@ class Home extends Component {
       this.setLoading(true);
       let data = await fetch(`https://api.canillitapp.com/latest/${date}`);
       data = await data.json();
+      const firstNews = data.slice(0, 21);
       this.setState({
-        noticias: data
+        noticias: firstNews
       });
     } catch (error) {
       console.log(error);
